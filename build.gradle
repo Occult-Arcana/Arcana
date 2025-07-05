@@ -146,6 +146,7 @@ tasks.named('processResources', ProcessResources).configure {
             "version": version,
             "mod_name": mod_name,
             "mod_url": mod_url,
+            "mod_desc": mod_desc,
             "mod_author": mod_author,
             "forge_version": forge_version.split("\\.")[0], // only specify major version of forge
             "minecraft_version": minecraft_version,
