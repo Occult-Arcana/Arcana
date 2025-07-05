@@ -12,6 +12,8 @@
 ## Overview
 This is the repository for the **Addon** Component of the Occult Arcana Project, A project that aims to add a magical overhaul for GregTech Modern. Join our [**Discord**](https://discord.gg/tsycBJhJhV) to discuss and learn more about the project.
 
+Requires Java 17+, and is built for Minecraft 1.20.1. Run ``gradlew`` for setup.
+
 ## Credited Works
 - Original addon template from https://github.com/JuiceyBeans/GregTech-Addon-Template
 
