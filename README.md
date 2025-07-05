@@ -1,38 +1,18 @@
-# GregTech Addon Template
-## Template for GregTech Modern addons on 1.20.1
-
- Original template by [screret](https://github.com/screret), maintained by [JuiceyBeans](https://github.com/JuiceyBeans)
-
-<hr>
-
-## How do I make an addon for GregTech Modern?
-Well for one, you WILL need to know Java to make an addon. There's no getting around this. A good starting point would be [MOOC](https://java-programming.mooc.fi/) or [W3Schools](https://www.w3schools.com/java/
-)
-
-Unfortunately, there isn't any official documentation so far for making GregTech Modern addons. There are a couple of mods you can look at to reference though!
-
-Repositories for other addons:
-
-- [GT Community Additions](https://github.com/mordgren/GTCA)
-- [Gregtech: Extended Chemistry Extended](https://github.com/jmoiron/Gregtech-Extended-Chemistry)
-- [GCYLM](https://github.com/eve336/gcylm)
-- [Gregicality Rocketry](https://github.com/Argent-Matter/gcyr/)
-
-Additionally, you may be able to find help on the [GregTech CEu Discord](https://discord.gg/bWSWuYvURP)!
+<p align="center">
+<img src="https://github.com/user-attachments/assets/315987be-bc42-4e26-9ea8-5371db14d4da" alt="Occult Arcana Banner"/>
+</p>
+<p align="center">
+ <img src="https://img.shields.io/badge/GregTech_Modern-1.6.4-blue?style=for-the-badge" alt="GregTech 1.6.4"/>
+   <img src="https://img.shields.io/badge/Project-Occult_Arcana-purple?style=for-the-badge" alt="Occult Arcana"/>
+  <img src="https://img.shields.io/badge/Minecraft-1.20.1-Green?style=for-the-badge" alt="Minecraft 1.20.1"/>
+</p>
 
 <hr>
 
-## This template comes packaged with [Spotless](https://github.com/diffplug/spotless)!
+## Overview
+This is the repository for the **Addon** Component of the Occult Arcana Project, A project that aims to add a magical overhaul for GregTech Modern. Join our [**Discord**](https://discord.gg/tsycBJhJhV) to discuss and learn more about the project.
 
-### 1. What is Spotless?
-- Spotless keeps your code neatly formatted. It's essentially a grammar check for your code!
-### 2. Can I choose not to use Spotless?
-- Yes! Spotless is completely optional and will not affect your project by default
-### 3. How do I run Spotless?
-- You can run Spotless anytime by:
-  - Running the `spotlessApply` task from the Gradle tab in IntelliJ
-  - Installing the [Spotless Gradle plugin for IntelliJ](https://plugins.jetbrains.com/plugin/18321-spotless-gradle)
-  - Typing in `gradlew.bat :spotlessApply` if you're on Windows
-  - Typing in `bash gradlew :spotlessApply` if you're on Linux
-### 4. So how do I check if Spotless has been applied to my code?
-- Running `spotlessApply` will format all files for you automatically! If you want GitHub to check each commit for if Spotless has been run, you can add [this](https://github.com/Frontiers-PackForge/CosmicCore/blob/main-1.20.1-forge/.github/workflows/spotless.yml) and [this](https://github.com/Frontiers-PackForge/CosmicCore/blob/main-1.20.1-forge/.github/actions/build_setup/action.yml) to your project
+## Credited Works
+- Original addon template from https://github.com/JuiceyBeans/GregTech-Addon-Template
+
+If anything part of the project is missing from the Credited Works section, Please reach out on the discord.
