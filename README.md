@@ -14,6 +14,6 @@ This is the repository for the **Mod** Component of the Occult Arcana Project, A
 Requires Java 17+, and is built for Minecraft 1.20.1. Run ``gradlew`` for setup.
 
 ## Credited Works
-- Original addon template from https://github.com/JuiceyBeans/GregTech-Addon-Template
+- Original mod template from https://github.com/JuiceyBeans/GregTech-Addon-Template
 
 If anything part of the project is missing from the Credited Works section, Please reach out on the discord.
