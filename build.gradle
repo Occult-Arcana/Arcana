@@ -29,13 +29,6 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven {
-        name = 'GTCEu Maven'
-        url = 'https://maven.gtceu.com'
-        content {
-            includeGroup 'com.gregtechceu.gtceu'
-        }
-    }
-    maven {
         name 'FirstDarkDev'
         url "https://maven.firstdarkdev.xyz/snapshots/"
     }
@@ -123,15 +116,9 @@ dependencies {
     runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     runtimeOnly fg.deobf("curse.maven:jade-324717:5390389")
 
-    // GregTech and dependencies
-    implementation fg.deobf("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
-    implementation fg.deobf("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
+    // Registrate and Configuration
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
     runtimeOnly fg.deobf("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
-
-    // lombok
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 mixin {
@@ -149,8 +136,7 @@ tasks.named('processResources', ProcessResources).configure {
             "mod_desc": mod_desc,
             "mod_author": mod_author,
             "forge_version": forge_version.split("\\.")[0], // only specify major version of forge
-            "minecraft_version": minecraft_version,
-            "gtceu_version": gtceu_version,
+            "minecraft_version": minecraft_version
     ]
     inputs.properties(properties)
 
