@@ -13,33 +13,21 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.sudlicht.occult_arcana.elementa.OAElementa;
+import com.sudlicht.occult_arcana.registration.OARegistrate;
+import com.tterrag.registrate.Registrate;
+
 @Mod(OccultArcana.MOD_ID)
 public class OccultArcana {
 
     public static final String MOD_ID = "occult_arcana";
     public static final Logger LOGGER = LogManager.getLogger();
 
+    // Registry for Occult Arcana
+    public static final OARegistrate REGISTRATE = OARegistrate.create(MOD_ID);
+
     public OccultArcana() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::clientSetup);
-
-        // Most other events are fired on Forge's bus.
-        // If we want to use annotations to register event listeners,
-        // we need to register our object like this!
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:");
-            LOGGER.info("Look, I found a {}!", Items.DIAMOND);
-        });
-    }
-
-    private void clientSetup(final FMLClientSetupEvent event) {
-        LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
+        OAElementa.init();
     }
 
     /**
@@ -48,7 +36,7 @@ public class OccultArcana {
      * @param path
      * @return ResourceLocation with the namespace of your mod
      */
-    public static ResourceLocation id(String path) {
+    public static ResourceLocation resourceLocation(String path) {
         return new ResourceLocation(MOD_ID, path);
     }
 }
