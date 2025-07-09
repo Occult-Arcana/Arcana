@@ -1,11 +1,16 @@
 package com.sudlicht.occult_arcana.registration;
 
-import java.util.function.Supplier;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraftforge.registries.RegistryObject;
 
-import com.sudlicht.occult_arcana.OccultArcana;
-import com.sudlicht.occult_arcana.elementa.Elementa;
-import com.sudlicht.occult_arcana.elementa.ElementaBuilder;
+import com.sudlicht.occult_arcana.registration.OARegistry.OABuilderConstructor;
 import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.builders.AbstractBuilder;
+import com.tterrag.registrate.builders.Builder;
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import com.tterrag.registrate.util.nullness.NonNullFunction;
+import com.tterrag.registrate.util.nullness.NonNullSupplier;
 
 public class OARegistrate extends Registrate {
 
@@ -13,8 +18,9 @@ public class OARegistrate extends Registrate {
         super(modid);
     }
 
-    /** 
+    /**
      * Create a new OARegistrate using the supplied modid.
+     * 
      * @param modid - Mod id to begin registered items resource locatiaons
      * @return OARegistrate
      */
@@ -22,13 +28,28 @@ public class OARegistrate extends Registrate {
         return new OARegistrate(modid);
     }
 
-    /** 
-     * Create a new Elementa
-     * @param name - Name of the new element 
-     * @param factory - Factory to create an instance of this element
-     * @return ElementaBuilder<T, P>
+    /**
+     * Create's a new OARegistry which corresponds to some type and it's builder.
+     * 
+     * @param name        - ID of the new registry
+     * @param constructor - A method reference to the constructor of the Builder
+     * @return OARegistry<T, B> - The new registry.
      */
-    public <T extends Elementa> ElementaBuilder<T, OARegistrate> createElementa(String name, Supplier<? extends T> factory) {
-        return entry(name, callback -> new ElementaBuilder<>(this, this, name, callback, factory));
+    public <T,
+            B extends AbstractBuilder<T, ? extends T, OARegistrate, B>> OARegistry<T, B> createOARegistry(String name,
+                                                                                                          OABuilderConstructor<T, B> constructor) {
+        return new OARegistry<T, B>(name, this, constructor);
+    }
+
+    /**
+     * Access modified version of Registrate accept to allow OARegistry's to call this method.
+     * Read doc of the superclass.
+     */
+    @SuppressWarnings("null")
+    @Override
+    public <R, T extends R> RegistryEntry<T> accept(String name, ResourceKey<? extends Registry<R>> type,
+                                                    Builder<R, T, ?, ?> builder, NonNullSupplier<? extends T> creator,
+                                                    NonNullFunction<RegistryObject<T>, ? extends RegistryEntry<T>> entryFactory) {
+        return super.accept(name, type, builder, creator, entryFactory);
     }
 }
